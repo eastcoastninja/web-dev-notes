@@ -1,0 +1,63 @@
+/*Selector {
+	Property: value;
+}*/
+* {
+	text-align: right;
+}
+
+body {
+	background-image: url(creepy-cat.jpg);
+	background-size: cover;
+}
+h2 {
+	color: red;
+}
+
+p {
+	color: #AC3C42;
+	text-align: center;
+	border: 5px solid rgba(240, 164, 177, 0.5);
+	cursor: pointer;
+}
+
+p {
+	color: rgba(16, 86, 68, 1);
+	/*text-decoration: line-through;
+	text-transform: uppercase;*/
+	line-height: 50px;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 100%;
+	font-family: 'Poiret One', cursive;
+}
+
+img {
+	float: right;
+	width: 200px;
+	height: 200px;
+}
+footer {
+	clear: both;
+	text-align: center;
+}
+
+li {
+	list-style: none;
+	display: inline-block;
+}
+
+.webtext:last-child {
+	border: 5px dashed green;
+}
+
+.active {
+	color: red;
+}
+
+#div1 {
+	background:rgba(0, 0, 255, 0.2);
+}
+
+#div2 {
+	background:rgba(255, 0, 0, 0.2);
+}
