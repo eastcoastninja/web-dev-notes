@@ -6,6 +6,10 @@ includes notes for: <br>
   <br>
   +JavaScript(ES5-ES8)
   <br>
+  +JavaScript30
+  <br>
+  +FlexBox
+  <br>
   +Practice Exercises
   <br>
  
