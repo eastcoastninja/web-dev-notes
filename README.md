@@ -12,6 +12,8 @@ includes notes for: <br>
   <br>
   +NPM
   <br>
+  +React
+  <br>
   +Practice Exercises
   <br>
  
