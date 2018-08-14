@@ -14,6 +14,6 @@ includes notes for: <br>
   <br>
   +React
   <br>
-  +Practice Exercises
+  +Practice Exercises(located in each individual section)
   <br>
  
