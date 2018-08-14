@@ -34,3 +34,38 @@ Three things you must have when starting a project in 2018
 1. HTML + CSS + JavaScript (Must have one or can have multiple)
 2. Github Repo + Git (Have project on github with source control)
 3. Package.json file (Manage packages (NPM) other things that people have written with package.json)
+
+Installing with -g means globally you can run it in the terminal 
+Installing with -l mean locally giving you new options in the js file
+
+npm init creates json file 
+if we add local packages to our projects they are added to the json dependencies(packages our websites need to work) all of these packages live in the node modules folder
+
+Things to consider:
+Access with the team 
+	How much weight is added to a package?
+	is it worth it?
+	is the code well written?
+	is there a good community behind it?
+	does it save time?
+
+Dependencies 
+	our projects depend on these packages
+	a certain version must be located within the node modules folder 
+	must match the json dependencies section
+	adds an extra layer of complexity
+
+json
+	serves as a great resource for what packages our websites depend on
+
+	"lodash": "^4.17.10" Semantic Versioning (semver) goes 
+	# right to left (major release, minor release, patch release)
+
+do not post node modules folder to github only the package .json which includes the information need to install them with the command npm install
+
+dev dependency are packages that are only needed for development and testing it will never be shipped to a website where an end user would ever see
+
+npm scripts allow you to do commands from the package.json file
+scripts": {
+    "build": "browserify script.js > bundle.js && live-server"
+  }
