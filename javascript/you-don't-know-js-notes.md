@@ -34,3 +34,11 @@ Properties can alternatively be accessed as ```obj["a"]```
 ```==```(loose-equals) ```===```(strict-equals) ```!=```(loose not-equals) ```!==```(strict not-equals)
 
 ## Values & Types
+Two different representations for values:
+**6 Primitive data types values: Number, String, Boolean, null, undefined, and Symbol**
+Values that are included directly in the source code are called literals. Theses are fixed values, not variables, that you literally provide in your script.
+**7 Literal data types are: Array literals, Boolean literals, Floating-point literals, Integers, Object literals, RegExp literals, and String literals**
+String literals are surrounded by double qoutes or single quotes.
+When you create an array using an array literal, it is initialized with the specified values as its elements, and its length is set to the number of arguments specified.
+
+## Converting Between Types
