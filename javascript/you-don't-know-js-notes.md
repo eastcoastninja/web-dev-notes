@@ -22,7 +22,7 @@ Other languages, the translation is done ahead of time, called compiling the cod
 It's typically asserted that JavaScript is interpreted, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually compiles the program on the fly and then immediately runs the compiled code.
 
 ## Output
-`console.log` log is a function in which the console is an object reference.
+`console.log()`is a function in which the console is an object reference.
 
 ## Input 
 The most common way to get input is through text boxes which the user can type into and we can use JS to read those values into the program's variables.
@@ -57,8 +57,6 @@ Too many comments (one per line, for example) is probably a sign of poorly writt
 Comments should explain why, not what. They can optionally explain how if that's particularly confusing.
 
 Two types of comments:
-`js// This is a single-line comment`
-
 ```js
 // This is a single-line comment
 
