@@ -67,3 +67,39 @@ Two types of comments:
 ```
 
 ## Variables
+*Static typing* otherwise known as type *enforment* is cited as a benefit for program correctness by preventing unintended value conversions. *Weak typing* otherwise know as *dynamic typing* allows a variable to hold any type of value at any time. It is typically cited as a benefit for the program flexibility by allowing a single variable to represent a value no matter what form that variable may take during the program's logic flow.
+JavaScript uses dynamic typing meaning variables can hold values of any type without any type enforcement. 
+
+```js
+var amount = 99.99;
+Same declaration in Java
+
+// var int amount = 99.99;  // type information int
+
+amount = amount * 2;
+
+// convert amount to a string, and 
+// add "$" on the beginning 
+amount = "$" + String(amount); // explicitly coerces the value to a string 
+console.log(amount); // "$199.98"
+```
+
+Those that prefer static typing may create a seperate variable to hold the string such as `amountStr = "$199.98"`
+The primary purpose of variables is managing program state. State is tracking the changes to values as your program runs. 
+*Constants* are when you declare a variable with a value and intend for that value to change throughout the program.
+You should declare constants at the top of a program to have one place to go to alter a value if needed. JavaScript variables as constants are usually capitalized with underscores between multiple words.
+
+```js
+var TAX_RATE = 0.08; // 8% sales tax
+
+var amount = 99.99;
+
+amount = amount * 2;
+
+amount = amount +(amount* TAX_RATE);
+
+console.log(amount);
+// 215.9784
+console.log(amount.toFixed(2));
+// "215.98"
+```
