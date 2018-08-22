@@ -4,7 +4,7 @@ When you strive to comprehend your code, you create better work and become bette
 # Chapter 1: Into Programming
 
 ## Statements
-```js
+```javascript
 let a = 42; // variable
 42 // literal variable
 ```
@@ -57,7 +57,7 @@ Too many comments (one per line, for example) is probably a sign of poorly writt
 Comments should explain why, not what. They can optionally explain how if that's particularly confusing.
 
 Two types of comments:
-```js
+```javascript
 // This is a single-line comment
 
 /* But this is
@@ -70,7 +70,7 @@ Two types of comments:
 *Static typing* otherwise known as type *enforment* is cited as a benefit for program correctness by preventing unintended value conversions. *Weak typing* otherwise know as *dynamic typing* allows a variable to hold any type of value at any time. It is typically cited as a benefit for the program flexibility by allowing a single variable to represent a value no matter what form that variable may take during the program's logic flow.
 JavaScript uses dynamic typing meaning variables can hold values of any type without any type enforcement. 
 
-```js
+```javascript
 var amount = 99.99;
 Same declaration in Java
 
@@ -89,7 +89,7 @@ The primary purpose of variables is managing program state. State is tracking th
 *Constants* are when you declare a variable with a value and intend for that value to change throughout the program.
 You should declare constants at the top of a program to have one place to go to alter a value if needed. JavaScript variables as constants are usually capitalized with underscores between multiple words.
 
-```js
+```javascript
 var TAX_RATE = 0.08; // 8% sales tax
 
 var amount = 99.99;
