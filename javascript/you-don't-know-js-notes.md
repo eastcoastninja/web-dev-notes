@@ -31,9 +31,9 @@ The most common way to get input is through text boxes which the user can type i
 ### Object property access
 Objects are values that hold other values at specific named locations called properties. 
 `obj.a` means an object value called obj with a property of name a.
-Properties can alternatively be accessed as `obj["a"]`
+Properties can alternatively be accessed as `obj[ "a" ]`
 ### Equality
-`==`(loose-equals) `===`(strict-equals) `!=`(loose not-equals) `!==`(strict not-equals)
+`==`( loose-equals ) `===`( strict-equals ) `!=`( loose not-equals ) `!==`( strict not-equals )
 
 ## Values & Types
 Two different representations for values: **Primitives and Literals**
@@ -67,7 +67,7 @@ Two types of comments:
 ```
 
 ## Variables
-*Static typing* otherwise known as type *enforment* is cited as a benefit for program correctness by preventing unintended value conversions. *Weak typing* otherwise know as *dynamic typing* allows a variable to hold any type of value at any time. It is typically cited as a benefit for the program flexibility by allowing a single variable to represent a value no matter what form that variable may take during the program's logic flow.
+*Static typing* otherwise known as *type enforcement* is cited as a benefit for program correctness by preventing unintended value conversions. *Weak typing* otherwise know as *dynamic typing* allows a variable to hold any type of value at any time. It is typically cited as a benefit for the program flexibility by allowing a single variable to represent a value no matter what form that variable may take during the program's logic flow.
 JavaScript uses dynamic typing meaning variables can hold values of any type without any type enforcement. 
 
 ```javascript
@@ -80,8 +80,8 @@ amount = amount * 2;
 
 // convert amount to a string, and 
 // add "$" on the beginning 
-amount = "$" + String(amount); // explicitly coerces the value to a string 
-console.log(amount); // "$199.98"
+amount = "$" + String( amount ); // explicitly coerces the value to a string 
+console.log( amount ); // "$199.98"
 ```
 
 Those that prefer static typing may create a seperate variable to hold the string such as `amountStr = "$199.98"`
@@ -96,10 +96,70 @@ var amount = 99.99;
 
 amount = amount * 2;
 
-amount = amount +(amount* TAX_RATE);
+amount = amount +(amount * TAX_RATE);
 
-console.log(amount);
+console.log( amount );
 // 215.9784
-console.log(amount.toFixed(2));
+console.log( amount.toFixed ( 2 ) ); // to fix rounds to the specified number of decimals and returns a string
 // "215.98"
 ```
+
+const variables can be declared at the top of your code and be used within code blocks.
+
+## Blocks
+Block is definded by wrapping more than one statement in a set of curly-braces `{..}` 
+
+## Conditionals 
+The if statement requires an expression in between the parentheses `( )` that can evaluate to `true` or `false`
+Values that aren't an expected type often coerce to that type. 
+JavaScript defines a list of specific values that are considered "falsy" because when coerced to a boolean, they become false -- these include values like 0 and "". Any other value not on the "falsy" list is automatically "truthy" -- when coerced to a boolean they become true. Truthy values include things like 99.99 and "free"
+Conditionals appear in other forms than if such as a `switch` statement which can be used as shorthand for a series of `if`..`else` or loops which use a condtional to determine if the loop should continue or stop.
+
+## Loops
+A loop includes the test condition as well as a block (typically as `{ .. }`). Each time the loop block executes, that's called an iteration.
+
+For example, the while loop and the do..while loop forms illustrate the concept of repeating a block of statements until a condition no longer evaluates to true:
+
+```javascript
+while (numOfCustomers > 0) {
+	console.log( "How may I help you?" );
+
+	// help the customer...
+
+	numOfCustomers = numOfCustomers - 1;
+}
+
+// versus:
+
+do {
+	console.log( "How may I help you?" );
+
+	// help the customer...
+
+	numOfCustomers = numOfCustomers - 1;
+} while (numOfCustomers > 0);
+```
+In either form, if the conditional tests as false, the next iteration will not run. That means if the condition is initially false, a while loop will never run, but a do..while loop will run just the first time.
+
+The only practical difference between these loops is whether the conditional is tested before the first iteration (while) or after the first iteration (do..while).
+
+The conditional is tested on each iteration, much as if there is an implied if statement inside the loop.
+
+```javascript
+for (var i = 0; i <= 9; i = i + 1) {
+	console.log( i );
+}
+```
+
+* Statement 1 is executed (one time) before the execution of the code block.
+
+* Statement 2 defines the condition for executing the code block.
+
+* Statement 3 is executed (every time) after the code block has been executed.
+
+The for loop has three clauses: the initialization clause (var i=0), the conditional test clause (i <= 9), and the update clause (i = i + 1). So if you're going to do counting with your loop iterations. 
+There are other specialized loop forms that are intended to iterate over specific values, such as the properties of an object (see Chapter 2) where the implied conditional test is just whether all the properties have been processed. The "loop until a condition fails" concept holds no matter what the form of the loop.
+
+## Functions
+
+## Scope
