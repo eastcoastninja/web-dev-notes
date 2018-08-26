@@ -33,26 +33,26 @@
 const TAX_RATE = 0.07; 
 const PHONE_PRICE = 99.99;
 const ACCESSORIES_PRICE = 10;
-const SPENDING_THRESHOLD = 600;
+const SPENDING_THRESHOLD = 700;
 
 var amount = 0;
-var bank_balance = 1111.22;
-var spent = 0;
-
+var bank_balance = 0;
+var remainingBalance = 0;
 
 function calculateTax(amount) {
 	return amount * TAX_RATE;
 }
 
-function stringFormat(str) {
-	return "$" + str.toFixed(2);
+function stringFormat(num) {
+	return "$" + num.toFixed(2);
 }
 
 function shop() {
+	bank_balance = prompt("How much are we spending today?");
 	var purchasedPhone = 0;
 	var purchasedAccess = 0;
-
-	while(amount < bank_balance) {
+	
+	while(amount <  bank_balance && amount < SPENDING_THRESHOLD) {
 			// buy new phone
 			amount = amount + PHONE_PRICE;
 			purchasedPhone++;
@@ -65,14 +65,20 @@ function shop() {
 	}
 		// pay the govt taxes
 		amount = amount + calculateTax(amount);
-		spent =  bank_balance - amount; 
-		spent = stringFormat(spent);
-		// format amount to string
-		amount = stringFormat(amount);
-		
-		bank_balance = stringFormat(bank_balance);
-		console.log("You can no longer purchase any more items.")
-		console.log(`You spent: ${spent} and purchased: ${purchasedPhone} phones with ${purchasedAccess} accessories. Your remaining balance is ${bank_balance}`);
+		if(amount > bank_balance) {
+			// calculates the amount needed to buy
+			remainingBalance = amount - bank_balance;
+			remainingBalance = stringFormat(remainingBalance);
+			console.log(`You can not afford this purchase. You need an additional ${remainingBalance} to buy.`)
+		} else {
+			// store current balance
+			remainingBalance = bank_balance - amount;
+			
+			// format number values to strings
+			amount = stringFormat(amount);
+			remainingBalance = stringFormat(remainingBalance)
+			console.log( `You spent: ${amount} and purchased: ${purchasedPhone} phones with ${purchasedAccess} accessories. Your remaining balance is ${remainingBalance}`);
+		}
 }
 
 shop();
