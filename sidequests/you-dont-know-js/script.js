@@ -1,4 +1,4 @@
-// version 1
+// // version 1
 // const TAX_RATE = 0.07; 
 // const PHONE_PRICE = 99.99;
 // const ACCESSORIES_PRICE = 10;
@@ -28,6 +28,7 @@
 // }
 
 // shop();
+// version 2
 
 const TAX_RATE = 0.07; 
 const PHONE_PRICE = 99.99;
@@ -36,10 +37,11 @@ const SPENDING_THRESHOLD = 600;
 
 var amount = 0;
 var bank_balance = 1111.22;
+var spent = 0;
 
 
 function calculateTax(amount) {
-	amount * TAX_RATE;
+	return amount * TAX_RATE;
 }
 
 function stringFormat(str) {
@@ -49,7 +51,7 @@ function stringFormat(str) {
 function shop() {
 	var purchasedPhone = 0;
 	var purchasedAccess = 0;
-	
+
 	while(amount < bank_balance) {
 			// buy new phone
 			amount = amount + PHONE_PRICE;
@@ -61,17 +63,16 @@ function shop() {
 				purchasedAccess++;
 			}
 	}
-
 		// pay the govt taxes
 		amount = amount + calculateTax(amount);
-		spent =  amount - bank_balance; 
-		// spent = stringFormat(spent);
+		spent =  bank_balance - amount; 
+		spent = stringFormat(spent);
 		// format amount to string
 		amount = stringFormat(amount);
 		
 		bank_balance = stringFormat(bank_balance);
 		console.log("You can no longer purchase any more items.")
-		return `You spent: ${spent} and purchased: ${purchasedPhone} phones with ${purchasedAccess} accessories. Your remaining balance is ${bank_balance}`;
+		console.log(`You spent: ${spent} and purchased: ${purchasedPhone} phones with ${purchasedAccess} accessories. Your remaining balance is ${bank_balance}`);
 }
 
 shop();
