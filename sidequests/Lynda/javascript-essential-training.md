@@ -296,6 +296,45 @@ console.log(`Large size: ${largeSize()}`);
 console.log(`Extra-Large size: ${xlargeSize()}`);
 ```
 
+# Document Object Model (DOM) 
+Browser Object Model (BOM)
+Each HTML element is a DOM node 
+Head holds all the invisible nodes like (meta,title, link)
+Body holds all the visioble nodes in the view port (header, main, footer, and more)
+```javascript
+// Get the first element matching specified selector(s)
+// get the first instance of something
+document.querySelector(".main-nav a");
+
+// Get the all element matching specified selector(s)
+// get all or a grouping of things to loop over returns an array
+document.querySelectorAll(".post-content p");
+```
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+# 
+
+
+
 
 
 
