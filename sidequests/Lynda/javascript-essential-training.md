@@ -310,10 +310,105 @@ document.querySelector(".main-nav a");
 // get all or a grouping of things to loop over returns an array
 document.querySelectorAll(".post-content p");
 ```
+For read only properties on the DOM you can use these methods: add, remove, toggle, contains, and replace; to make changes to the properties (https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+# Adding new DOM Elements
+1. Create the element
+2. Create the text node that goes inside the element
+3. Add the text node to the element 
+4. Add the element to the DOM tree
 
-# 
+(DOM ELEMENT CREATION METHODS)
 
-# 
+```javascript
+.createElement(); // create an element.
+.createTextNode(); // create text node. && do not need if using the newer .append() method
+.appendChild(); // Place one child node inside another
+```
+Example using these methods
+```javascript
+// gets class featured-image
+const FEATURED = document.querySelector(".featured-image");
+// gets element inside of featured-image class
+const THE_IMAGE = FEATURED.querySelector("img");
+
+// returns the value inside from the alt attribute and stores it
+let altText = THE_IMAGE.getAttribute("alt");
+
+let captionElement = document.createElement("figcaption");
+
+// do not need unless supporting older browsers
+// creates a node and puts the value from altText inside of the node captionText
+// let captionText = document.createTextNode(altText);
+
+// new method not supported by all browsers yet
+// appends any string to a specified parent node
+captionElement.append(altText);
+FEATURED.append(captionElement);
+
+// sets img element attribute alt to an empty string
+THE_IMAGE.setAttribute("alt", "");
+```
+
+# Add inline CSS to an element 
+Add any CSS property to any element via JavaScript using the style attribute  
+```javascript
+// only returns inline style for this element
+// does not include external CSS styles
+document.querySelector(".cta a").style 
+// if the property name has a - in it the name becomes camelCase
+document.querySelector(".cta a").style.backgroundColor = "blue"
+
+// to add multiple style properties you can use the cssText property
+document.querySelector(".cta a").style.cssText = "padding: 1em; color: white; background-color: red;"
+// this can also be done with the setAttribute method
+document.querySelector(".cta a").setAttribute("style", "padding: 1em; color: green; background-color: orange;")
+```
+
+Inline CSS overrides whatever CSS is applied to an element
+Most case create CSS rules and use JavaScript to manage these classes to apply the rules to the element. 
+# Clock Project
+```.setInterval()``` repeatly calls a function or executes a code snippet with a fixed delay between each call.
+Be careful how you structure you code, look at how the logic reads, and test how different things can impact your end result.
+
+```javascript
+const HOURHAND = document.querySelector("#hour");
+const MINUTEHAND = document.querySelector("#minute");
+const SECONDHAND = document.querySelector("#second");
+
+var date = new Date();
+  console.log(date);
+  let hr = date.getHours();
+  let min = date.getMinutes();
+  let sec = date.getSeconds();
+  console.log("Hour: " + hr + " Minute: " + min + " Second: " + sec);
+  // ((current hour) + (number of minutes added to the clock) / 60 per segment)
+  let hrPosition = (hr*(360/12)+(min*(360/60)/12));
+  // ((current minute) + (number of seconds added to the clock) / 60 per segment)
+  // moves per each second
+  let minPosition = (min*(360/60)+(sec*(360/60)/60));
+  // sec current of seconds in a minute * (degrees/60seconds <= returns the number of segments)
+  // multiply both to show how many segments we want to move
+  let secPosition = sec*(360/60);
+
+function runTheClock () {
+
+  // commenting this out and inserting the hrPostion, minPosition, and secPosition will give an odd animation
+
+  // adds an extra second to remove animation
+  hrPosition = hrPosition+(3/360) // <= shorthand (30/3600)
+  // one sixtienth of the degrees needed 
+  minPosition = minPosition+(6/60); // <= shorthand (1/60)*6
+  // number of degrees need to display one additional second
+  // 360 degrees / 60 seconds = 6 degrees
+  secPosition = secPosition+6; 
+
+  HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
+  MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
+  SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
+}
+
+let interval = setInterval(runTheClock, 1000);
+```
 
 # 
 
