@@ -1,4 +1,5 @@
-# Binary
+# Week 0 Notes
+## Binary
 The decimal notation is calculated in powers of 10.
 Binary notation is calculated in terms of base 2. (from left to right)
 2^0 = 1
@@ -45,8 +46,6 @@ pseudocode, English-like syntax that is similar in precision to code.
 Words like pick up, open, and look are equivalent to functions in code, like verbs or actions that allow us to do something.
 if, else if, and else are the keywords which represent forks in the road, or decisions based on answers to certain questions. These questions are called Boolean expressions, which have an answer of either true or false. For example, Smith among names is a question, as is Smith is earlier in book and Smith is later in book.
 go back creates loops, or series of steps that happen over and over, until we complete our algorithm.
-
-
 
 *Do good do well*
 
