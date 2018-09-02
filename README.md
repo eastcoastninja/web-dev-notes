@@ -16,4 +16,8 @@ includes notes for: <br>
   <br>
   +Practice Exercises(located in each individual section)
   <br>
+  +SideQuests
+  <br>
+  +CS50
+  <br>
  

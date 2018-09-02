@@ -410,9 +410,140 @@ function runTheClock () {
 let interval = setInterval(runTheClock, 1000);
 ```
 
-# 
+# Events
+Event handler
+1. Identify the DOM node the event will be attached to for 
+2. Identify the event you to detect, and bind that to the DOM node 
+3. Create the function that is trigger when the event is fires.
 
-# 
+Typical Events
+Browser level events (load, error, online/offline, window resize, scroll ect.)
+DOM-level events (mouse events - (click, mouseover, drag, drop), focus, blur, reset/submit, ect.)
+*Any event the browser reacts to is an event you can hook into and modify with JavaScript*
+
+```javascript
+const  CTA = document.querySelector(".cta a");
+const ALERT = document.querySelector("#booking-alert");
+
+CTA.classList.remove("hide");
+ALERT.classList.add("hide");
+// We can catch the event attribute in the object that is trigger using passing e for event object
+function reveal (e) {
+  e.preventDefault();
+  CTA.classList.toggle("hide");
+  ALERT.classList.toggle("hide");
+}
+// do not need to call since the event will call when the action is performed
+CTA.onclick = reveal;
+```
+
+Multiple Event listeners can be attached to a single event or browser level events
+
+Event handlers can only be attached to one event.
+```javascript
+const CTA = document.querySelector(".cta a");
+const ALERT = document.querySelector("#booking-alert");
+
+CTA.classList.remove("hide");
+ALERT.classList.add("hide");
+
+function reveal(e) {
+    e.preventDefault();
+    CTA.classList.toggle("hide");
+    ALERT.classList.toggle("hide");
+}
+
+// multiple events can be stacked to the same interaction
+
+CTA.addEventListener('click', reveal, false);
+CTA.addEventListener('click', function(){console.log("The button was clicked!")}, false);
+```
+An event listener will constanly listen for events and one is triggered it is runs again and again 
+# Mouse -Tracker
+JS
+```javascript
+const AREA = document.body;
+const CIRCLE = document.querySelector('.circle');
+
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+
+function mouseCoordinates(e) {
+    // Capture the event object (mouse movement).
+    // Get X coordinate (distance from left viewport edge) via clientX property.
+    // Take total window width, subtract current coordinate and width of circle.
+    // Do the same for Y coordinate (distance from top viewport edge).
+    var horizontalPosition = windowWidth - e.clientX - 26;
+    var verticalPosition= windowHeight - e.clientY - 26;
+
+    // Set horizontal and vertical position.
+    CIRCLE.style.left = horizontalPosition + 'px';
+    CIRCLE.style.top = verticalPosition + 'px';
+}
+
+function changeColorOnTouch() {
+    CIRCLE.style.backgroundColor = "green";
+    CIRCLE.style.borderColor = "green";
+}
+
+// When the mouse moves, run the mouseCoordinates function.
+AREA.addEventListener('mousemove', mouseCoordinates, false);
+
+// When the mouse touches the circle, run the changeColorOnTouch function.
+CIRCLE.addEventListener('mouseenter', changeColorOnTouch, false);
+
+// When the mouse leaves the circle, remove inline styles with an anonymous function.
+CIRCLE.addEventListener('mouseleave', function(){CIRCLE.removeAttribute("style");}, false);
+```
+HMTL & CSS
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>An empty page</title>
+    <script src="JS/tracker-script.js" async></script>
+    <style>
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+    .circle {
+        position: absolute;
+        top: 1px;
+        width: 50px;
+        height: 50px;
+        color: transparent;
+        border: 2px solid red;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="circle"></div>
+</body>
+
+</html>
+```
+*How to pass in arguments in a regular function*
+```javascript
+function reveal (e, current) {
+  e.preventDefault();
+  
+  // current refers to the clicked object
+  current.innerHTML == "Book Now!" ? CTA.innerHTML =  "Ooops!" : CTA.innerHTML = "Book Now!";
+  ALERT.classList.toggle("hide");
+}
+// monitor click event, bind to reveal function, bind to the most specific node in this case the anchor or the least specific document which is set to true
+// last parameter is only relevant when events are piled up one on top of another
+// this refers to the object that was clicked the actual linke CTA and runs the function
+// e (event object) must be pass downed from the original function
+CTA.addEventListener("click", function(e){reveal(e, this);}, false);
+CTA.addEventListener("click", function(){ console.log("the button was click!");}, false);
+```
 
 # 
 
