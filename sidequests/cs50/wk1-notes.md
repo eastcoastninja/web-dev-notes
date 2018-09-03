@@ -1,14 +1,14 @@
 # Week 1 Notes
 C builds a foundation for many other languages
 Must tell the computer what type of variable you are inputting into your variable.
-# for loops
+## for loops
 for loops check if the boolean expression is true before running the code block inside. After the code block runs the variable changes via i++, i-- , or ect. Then it will check the second expression only the boolean expression to see if it still evalutates to true until it is no longer valid.
 ```c
 for(int i = 0; i < 50; i++) {
 	printf("hello world\n");
 }
 ```
-# CS50 IDE
+## CS50 IDE
 Machines only understand 0's and 1's they do not understand code. We must translate (compile) the source code to machine code (0's and 1's) via a compiler for the computer to interpret it.
 IDE(Intergrated development environment)
 In most industry it is common to have uniform development environments
@@ -29,7 +29,7 @@ The first error maybe the most important since the other errors maybe dependenci
 ```#include <cs50.h>``` adds the cs50 library to get input
 ```#include <stdio.h>``` adds the standardio library to print output
 .h file is a header file it's a summary of functionality
-# Design & Logic
+## Design & Logic
 float allow you to use 32 bits to represent a number
 double allow you to use 64 bits to represent a number
 Single ```''``` are meant for single characters  
@@ -37,7 +37,7 @@ Design is if you did a good job implementing your code equivalent to someone eva
 Style, or the indentation, comments, and variable naming, is yet another aspect.
 We use the if, else if, and else keywords to denote the forks in the road, based on Boolean expressions. else simply captures all the cases that haven’t fit into a previous condition.
 integers discard anything after the decimal point, if we try to store some number with a decimal into it.
-# Switch
+## Switch
 A switch is another construct in C where the value of a variable is compared to various cases, and the indented code beneath a matching case will be executed.
 Notice that we use break to indicate that the switch should end. Otherwise, once a matching case is found, all of the code below it will run.
 
@@ -65,9 +65,9 @@ Line 50 declares the prototype, or definition, of a function we will write, call
 
 Line 55 calls square, passing in x, and the return value is not stored but passed directly to printf, which will substitute it in the string and print it to the screen. We could define a variable like int squaredvalue above, and then substitute it in, but since we are only using it once after we create it, it’s considered better design to include it directly where we use it.
 
-# Overflow
+## Overflow
 In our computers, the number of bytes in our memory is finite. As a result, we can store only so much data. In C, each type of data has a fixed number of bytes allocated to instances of it. For example, every ```int``` has only 4 bytes in the CS50 IDE.
-## Bits & Bytes
+### Bits & Bytes
 In general: add 1 bit, double the number of patterns
 Mathematically: n bits yields 2n patterns (2 to the nth power)
 8 bits - 256 - one byte (2^8)
@@ -103,8 +103,9 @@ There are several examples in the real world where these issues create limitatio
 
 ```int n``` good practice to use n for variables that stand for number
 
-# Greedy Algorithms
+## Greedy Algorithms
 According to the National Institute of Standards and Technology (NIST), a greedy algorithm is one "that always takes the best immediate, or local, solution while finding an answer. Greedy algorithms find the overall, or globally, optimal solution for some optimization problems, but may find less-than-optimal solutions for some instances of other problems."
 
+Beware of impression of floats when converting to integer use round function ```change = round(4.2 * 100); // 420 without round 4.2 converts to 4.19 making the value 419``` 
 
-
+# Week 1 continued
