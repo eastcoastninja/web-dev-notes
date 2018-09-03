@@ -103,3 +103,8 @@ There are several examples in the real world where these issues create limitatio
 
 ```int n``` good practice to use n for variables that stand for number
 
+# Greedy Algorithms
+According to the National Institute of Standards and Technology (NIST), a greedy algorithm is one "that always takes the best immediate, or local, solution while finding an answer. Greedy algorithms find the overall, or globally, optimal solution for some optimization problems, but may find less-than-optimal solutions for some instances of other problems."
+
+
+
