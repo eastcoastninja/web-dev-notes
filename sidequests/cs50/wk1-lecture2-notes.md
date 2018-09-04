@@ -139,7 +139,31 @@ int main(void)
 }
 ```
 
-First, we notice that the for loop now initializes two variables, i and n, at the start. n is set to the length of s, and we can do this once at the beginning of the loop since we know the length won’t change. Then, the loop won’t need to compute the length of the string on each iteration when it compares i to strlen. Instead, it can just compare it to n, which we already saved.
+First, we notice that the ```for``` loop now initializes two variables, ```i``` and ```n```, at the start. ```n``` is set to the length of ```s```, and we can do this once at the beginning of the loop since we know the length won’t change. Then, the loop won’t need to compute the length of the string on each iteration when it compares ```i``` to ```strlen```. Instead, it can just compare it to ```n```, which we already saved.
 
-Within the loop, we check whether each character is lowercase. We can compare the values of one char with another directly, and use  && to indicate a logical and in C, such both Boolean expressions need to be true for the condition to run. And if it is indeed lowercase, we do some arithmetic to capitalize it. Fortunately, in ASCII, all lowercase letters are offset from the capital counterparts by the same amount. So we can subtract that difference from a lowercase letter, and get the number for the capital version of that letter.
+Within the loop, we check whether each character is lowercase. We can compare the values of one ```char``` with another directly, and use  ```&&``` to indicate a logical ```and``` in C, such both Boolean expressions need to be true for the condition to run. And if it is indeed lowercase, we do some arithmetic to capitalize it. Fortunately, in ASCII, all lowercase letters are offset from the capital counterparts by the same amount. So we can subtract that difference from a lowercase letter, and get the number for the capital version of that letter.
 
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("before: ");
+    printf("after:  ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        if (islower(s[i]))
+        {
+            printf("%c", toupper(s[i]));
+        }
+        else
+        {
+            printf("%c", s[i]);
+        }
+    }
+    printf("\n");
+}
+```
