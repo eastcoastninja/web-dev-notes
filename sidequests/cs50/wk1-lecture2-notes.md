@@ -172,3 +172,67 @@ int main(void)
     printf("\n");
 }
 ```
+````islower```` and ```toupper``` are functions from yet another library, ```ctype.h```, that we can use to achieve the same effects as what we manually did earlier.
+
+```islower``` returns a Boolean value, either ```true``` or ```false```, which we can check in our condition. And ```toupper``` returns the uppercase version of the character passed into it.
+
+We can, by looking at the documentation, realize that ```toupper``` will work on any character and only convert it to uppercase if it’s already lowercase, so we don’t even need to make that check ourselves:
+
+we realize that our computer’s memory is just lots and lots of bytes, ordered one after another. We can represent that in a grid
+
+Each of the boxes in the grid are numbered, from 0 to some number in the billions (depending on the amount of memory we have).
+
+And C stores strings in memory with one character in each byte, but also with a terminating, or ending character, at the end of each string. This special null character, or \0, is literally the number 0 (not the ASCII equivalent for the character 0).
+
+If we were to store many strings in our computer’s memory, they might end up being stored like this, one after another.
+
+For other types of data in C, a fixed number of bytes is allocated for them every time, so they do not need a terminating character.
+```c
+// count each character except \0 (null character)
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string s = get_string();
+    int n = 0;
+    while (s[n] != '\0')
+    {
+        n++;
+    }
+    printf("%i\n", n);
+}
+
+In C, we can create arrays, or lists, comprised of elements of the same type of data. Strings, as we’ve seen, are just arrays of characters.
+
+To be more precise, an array is a contiguous chunk of memory of elements of the same type, stored back to back.
+
+```int main(void)```: main is a function that takes ```void```, or nothing, as its arguments, and returns an ```int```.
+
+We can change that so our program takes input not when it runs, but before it runs, at the command-line, We can try the following with argv0.c:
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc == 2) // first argument the program name ./hello second argument is what is passed in
+    {
+        printf("hello, %s\n", argv[1]); 
+    }
+    else
+    {
+        printf("hello, world\n");
+    }
+}
+```
+Notice that ```main``` now takes in two arguments. The first, ```argc```, is a count of how many arguments were passed in. The second, argv, is an array of strings, each of which are the arguments typed at the prompt.
+
+If ```argc```, or the number of arguments, is 2, then we print out the second of those arguments. ```argv[0]```, the first argument, will always be the name of our program.
+
+We can compile and run this program with something like ```./hello Julian```, and see as output ```hello, Julian```.
+
+## Cryptography
+One way to encrypt, or scramble data, so that it can be decrypted, or unscrambled, is to map each letter in the alphabet to some other letter with a key.
+
+Encrypted data, or ciphertext, is the scrambled version of plaintext, or the original, easily-readable data. To get from plaintext to ciphertext, and vice versa, we need to know the key, or some piece of information, like a number that indicates how many letters we need to shift each letter in our plaintext by.
