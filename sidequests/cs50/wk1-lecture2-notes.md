@@ -1,4 +1,8 @@
 # Lecture 2
+```clang hello.c -lcs50``` link the cs50 library with my code then execute the program
+This command along with ```clang -o hello hello.c``` has been abstracted away to make the process easier in the cs50 ide with the command ```make hello```
+Take steps when solving a problem. *Do not try to solve it in it's entirety*
+Write comments to give yourself answers as to why you made certain decisions so you do not need to re-evaluate and figure out why you did something a certain way.
 ## C, Continued
 If we see an error we don’t understand, we can use a command written by CS50 staff, help50
 For example, we could run ```help50 clang hello.c```
@@ -52,13 +56,14 @@ In C, and other languages, variables have a scope, or level of code where it can
 
 In the inner for loop, we print # the right number of times for each row, and follow that with a new line. The outer for loop will then repeat that for the right number of rows.
 
-We can use another tool, eprintf, to provide information to ourselves when our program is running:
+We can use another tool, ```eprintf``` can be used to express what should be happening at that line, if you think something is going to happen tell yourself that it should in your code, and make sure you see what you expect to see. (to provide information to ourselves when our program is running)
 
 We should also use the debugger, by clicking on line numbers to the left of our code:
 
 The red dot is called a breakpoint, which pauses our program at that line.
 
-Then we can run debug50 ./filename, and the panel on the right automatically opens.
+Then we can run ```debug50 ./filename``` , and the panel on the right automatically opens.
+*stepover* mean execute the line
 
 We can use the buttons on the top of that panel to control our program precisely. The triangle that looks like a play button will let the program resume normally until it reaches another breakpoint, if any. The next button, an arrow in the shape of a half-circle, will run the very next line of code, and pause the program again. The next button, the arrow pointing downwards, allows us to "step into" that line of code, and finally, the last arrow pointing up and to the right allows us to step back out of the next line of code.
 
@@ -101,7 +106,7 @@ int main(void)
     string s = get_string("Name: ");
     for (int i = 0; i < strlen(s); i++)
     {
-        printf("%c %i\n", s[i], (int) s[i]);
+        printf("%c %i\n", s[i], (int) s[i]); // make the char character an int 
     }
 }
 // Name: Julian            
@@ -124,15 +129,15 @@ int main(void)
 {
     string s = get_string("before: ");
     printf("after:  ");
-    for (int i = 0, n = strlen(s); i < n; i++)
+    for (int i = 0, n = strlen(s); i < n; i++) // does not check the string length on each iteration since it is declared in the loop
     {
-        if (s[i] >= 'a' && s[i] <= 'z')
+        if (s[i] >= 'a' && s[i] <= 'z') // if between a and z inclusive
         {
-            printf("%c", s[i] - ('a' - 'A'));
+            printf("%c", s[i] - ('a' - 'A')); // lowercase - capital = 32 (capitalize the letter)
         }
         else
         {
-            printf("%c", s[i]);
+            printf("%c", s[i]); // if capital letter just print it out
         }
     }
     printf("\n");
