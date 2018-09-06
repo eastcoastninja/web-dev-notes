@@ -160,7 +160,7 @@ int main(void)
     printf("after:  ");
     for (int i = 0, n = strlen(s); i < n; i++)
     {
-        if (islower(s[i]))
+        if (islower(s[i])) // returns true or false
         {
             printf("%c", toupper(s[i]));
         }
@@ -214,7 +214,7 @@ We can change that so our program takes input not when it runs, but before it ru
 #include <cs50.h>
 #include <stdio.h>
 
-int main(int argc, string argv[])
+int main(int argc, string argv[]) // argc = argument cout is the total number of words the user has typed for input argv = argument vector is an array of words the user has wrote at the prompt
 {
     if (argc == 2) // first argument the program name ./hello second argument is what is passed in
     {
@@ -232,7 +232,41 @@ If ```argc```, or the number of arguments, is 2, then we print out the second of
 
 We can compile and run this program with something like ```./hello Julian```, and see as output ```hello, Julian```.
 
+*Segmentation fault* you touched ram that you should not have
+
 ## Cryptography
 One way to encrypt, or scramble data, so that it can be decrypted, or unscrambled, is to map each letter in the alphabet to some other letter with a key.
 
 Encrypted data, or ciphertext, is the scrambled version of plaintext, or the original, easily-readable data. To get from plaintext to ciphertext, and vice versa, we need to know the key, or some piece of information, like a number that indicates how many letters we need to shift each letter in our plaintext by.
+
+## Debugging
+
+## Functions
+
+## Variable Scope
+Local variables in C are passed by value in function calls. 
+When variable is passed by value, the callee(the function that receives the variable) receives a copy of the passed variable, not the variable itself.
+That means that the variable in the caller is unchanged unless overwritten.
+
+Things can get insidious if the same variable name appears in multiple functions which is okay if the variable exist in different scopes
+
+## Arrays
+
+## Command Line Arguments
+To collect command-line argumentsfrom the user, declare main as:
+```int main(int argc, string argv[])```
+These two special arguments let you know what data the user provided and how much data they provided.
+```argc``` (argument count) interger type variable will store the number of command-line arguments that the user typed when the program was executed.
+```argv``` (argument vector) this array of strings stores, one string per element, the actual text the user typed at the command-line when the program was executed. *Every that is stored in argv is a string* Be careful not to overstep the bounds of your array especially with ```argv``` given its high degree of importance in a program.
+
+Check out Pset Walkthrough to find out how to turn a string into a number
+
+## Magic Numbers
+Directly writing constants into our code is sometimes referred to as using *magic numbers* generally want to try to avoid
+C provides a *preprocessor directive* (also know as(aka) macro) for creating symbolic constants (giving a name to a constant so it has more meaning).
+```#define NAME REPLACEMENT```
+At the time your program is compiled, ```#define``` goes through your code and replaces ```NAME``` with ```REPLACEMENT``` 
+If ```#include``` is similar to copy/paste, then ```#define``` is analogous to find/replace
+
+At the time your program is compiled, ```#define``` goes through your code and replaces ```PI``` with ```3.14159265``` 
+This make creating changes alot simplier since the code is defined at the top and only one change needs to be made. Also there is less of a chance for error when a defined constant is in place for a variable you want to change for specific reasons. ```#defile DECKSIZE 52```
