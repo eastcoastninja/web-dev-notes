@@ -244,6 +244,11 @@ Encrypted data, or ciphertext, is the scrambled version of plaintext, or the ori
 ## Functions
 
 ## Variable Scope
+Scope is a characteristic of a variable that defines from which that variable may be accessed
+	```Local``` accessible within the functions or blocks in which they were created
+	```global``` accessible by any function in the program must be defined outside of all functions and any function may refer to it.
+
+Be careful with global variables a value can be changed before you expect it to be changed.
 Local variables in C are passed by value in function calls. 
 When variable is passed by value, the callee(the function that receives the variable) receives a copy of the passed variable, not the variable itself.
 That means that the variable in the caller is unchanged unless overwritten.
@@ -251,6 +256,17 @@ That means that the variable in the caller is unchanged unless overwritten.
 Things can get insidious if the same variable name appears in multiple functions which is okay if the variable exist in different scopes
 
 ## Arrays
+We use arrays to hold values of the same type at contiguous memory locations. 
+An array is a block of contiguous space in memory whcih has been partitioned into small identically-sized blocks of space called elements each of which can store a certain amount of data all of the same data type such as int or char and which can be accessed directly by index. The last element is located at index (n-1) 
+C will not prevent you from going "out of bounds" of your array; be careful may encount a segmentation fault
+Array declaration ```type name [size] // size is how many elements you want your array to contain```
+```c
+// instantiation syntax
+bool truthtable[3] = { false, true, true};
+// individual element syntax
+bool truthtable[3];
+truthtable[0] = false;
+```
 
 ## Command Line Arguments
 To collect command-line argumentsfrom the user, declare main as:
@@ -269,4 +285,4 @@ At the time your program is compiled, ```#define``` goes through your code and r
 If ```#include``` is similar to copy/paste, then ```#define``` is analogous to find/replace
 
 At the time your program is compiled, ```#define``` goes through your code and replaces ```PI``` with ```3.14159265``` 
-This make creating changes alot simplier since the code is defined at the top and only one change needs to be made. Also there is less of a chance for error when a defined constant is in place for a variable you want to change for specific reasons. ```#defile DECKSIZE 52```
+This make creating changes alot simplier since the code is defined at the top and only one change needs to be made. Also there is less of a chance for error when a defined constant is in place for a variable you want to change for specific reasons. ```#define DECKSIZE 52```
