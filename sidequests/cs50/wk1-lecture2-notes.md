@@ -267,6 +267,25 @@ bool truthtable[3] = { false, true, true};
 bool truthtable[3];
 truthtable[0] = false;
 ```
+Iterate over an array is best done by using a loop.
+
+### Practice Exercise 
+Create an array of 100 integers where every element of the array is it's index
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv) 
+{
+    int arr = [100];
+    int length = sizeof(arr)/sizeof(int); // length of an integer array
+    for(int n = 0; n < length; n++) 
+    {
+        arr[n] = n; // sets each element to the current int index [0] = 0
+        printf("%i"), arr[n]);
+    }
+}
+```
 
 ## Command Line Arguments
 To collect command-line argumentsfrom the user, declare main as:
