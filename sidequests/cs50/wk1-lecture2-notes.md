@@ -249,10 +249,18 @@ Scope is a characteristic of a variable that defines from which that variable ma
 	```global``` accessible by any function in the program must be defined outside of all functions and any function may refer to it.
 
 Be careful with global variables a value can be changed before you expect it to be changed.
-Local variables in C are passed by value in function calls. 
+*Local variables in C are passed by value in function calls. 
 When variable is passed by value, the callee(the function that receives the variable) receives a copy of the passed variable, not the variable itself.
-That means that the variable in the caller is unchanged unless overwritten.
-
+That means that the variable in the caller is unchanged unless overwritten.* 
+```c
+int a = 10;
+a = set_int(a);  // overwrites a to the new variable
+set_int(a); // does not overwrite
+void set_int(int x)
+{
+  x = 22;
+}
+```
 Things can get insidious if the same variable name appears in multiple functions which is okay if the variable exist in different scopes
 
 ## Arrays
@@ -261,7 +269,7 @@ An array is a block of contiguous space in memory whcih has been partitioned int
 C will not prevent you from going "out of bounds" of your array; be careful may encount a segmentation fault
 Array declaration ```type name [size] // size is how many elements you want your array to contain```
 ```c
-// instantiation syntax
+// instantiation syntax do not need to indicate size before creating
 bool truthtable[3] = { false, true, true};
 // individual element syntax
 bool truthtable[3];
@@ -274,18 +282,26 @@ Create an array of 100 integers where every element of the array is it's index
 ```c
 #include <cs50.h>
 #include <stdio.h>
-
-int main(int argc, string argv) 
+// sets each element to the current index [0] = 0 and prints it out
+int main(void)
 {
-    int arr = [100];
+    int arr [100]; 
     int length = sizeof(arr)/sizeof(int); // length of an integer array
-    for(int n = 0; n < length; n++) 
+    for(int n = 0; n < length; n++)
     {
-        arr[n] = n; // sets each element to the current int index [0] = 0
-        printf("%i"), arr[n]);
+        arr[n] = n;
+        printf("%i\n", arr[n]);
     }
 }
 ```
+Arrays can consist of more than a single dimension. You can have as many size specifiers as you wish
+```bool battleship[10][10]; // think of this as a 10 x 10 grid of cells``` 
+In memory it's really just a 100-element one dimensional array
+Multi-dimensional arrays are great *abstraction* to help visualize game boards or other complex representations
+We cannot treat entire arrays themselves as variables
+Cannot assign one array to another using the assingment operator we must instead loop to copy over the elements one at a time
+Arrays *are passed by reference* The callee receives the actual array not a local copy of it if it were (passed by value) 
+
 
 ## Command Line Arguments
 To collect command-line argumentsfrom the user, declare main as:
