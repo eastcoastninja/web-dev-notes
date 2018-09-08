@@ -242,7 +242,77 @@ Encrypted data, or ciphertext, is the scrambled version of plaintext, or the ori
 ## Debugging
 
 ## Functions
+If we aren't implementing the functions ourselves we don't need to know the underlying implementation. 
+That's part of the contract of using functions. The behavior is typically preditable based on the name. That's why most functions have clear, obvious names, and are well-documented. 
+### Why use functions?
+  Organization:
+    Functions help break up a complicated problem into manageable subparts.
+  Simplification: 
+    Smaller components tend to be easier to design, implement, and debug.
+  Reusability:
+    Functions can be recycled; you need to write them once, but can use them as often as you need!
+### Function declarations
+The first step when creating a function is to declare it. This give the compiler a heads up that a user written function appears in code.
+Function declarations should always go atop your code, before you begin writing ```main()``` 
+Function declartion should appear as followed: ```return-type name(argument-list)``` ```float mutli_floats(float a, float b);```
+The second step is to define it. 
+```c
+float mutli_floats(float a, float b)
+{
+  float product = a * b;
+  return product
+}
+```
+### Function calls
+To call a function simply pass it arguments and assign its return value to something of the correct type
+### Practice Problem 
+Outputs true or false depending on whether the three lengths are capable of making a triangle
+  A triangle may only have sides with a positive length
+  The sum of the lengths of any two sides of the triangle must be greater than the length of the third size
+*When calling functions only need the function name and parameters if any do not include type or argument types*
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
 
+// Outputs true or false depending on whether the three lengths are capable of making a triangle
+//   A triangle may only have sides with a positive length
+//   The sum of the lengths of any two sides of the triangle must be greater than the length of the third size
+
+bool valid_triangle(int a, int b, int c); // tells the compiler this function will be defined below
+int main(void)
+{
+  int a , b, c;
+  string response ="";
+    // checks for positive sides
+    do
+    {
+      a = get_float("What's your first number?\n");
+      b = get_float("What's your second number?\n");
+      c = get_float("What's your third number?\n");
+    }
+    while((a <= 0) || (b <= 0) || (c <= 0));
+
+    bool valid = valid_triangle(a, b, c);
+    response = valid ? "true" : "false";
+    printf("Calculating...\n");
+    printf("This is a valid triangle? %s\n", response);
+}
+  bool valid_triangle(int a, int b, int c)
+  {
+    bool result;
+    // check that the sum of (every pair) of any two sides is greater than the third (all must be greater to be true)
+    if((a + b <= c) || (a + c <= b) || (b + c <= a))
+    {
+      result = false;
+    }
+    else
+    {
+      result = true;
+    }
+    return result;
+  }
+```
 ## Variable Scope
 Scope is a characteristic of a variable that defines from which that variable may be accessed
 	```Local``` accessible within the functions or blocks in which they were created
@@ -252,15 +322,20 @@ Be careful with global variables a value can be changed before you expect it to 
 *Local variables in C are passed by value in function calls. 
 When variable is passed by value, the callee(the function that receives the variable) receives a copy of the passed variable, not the variable itself.
 That means that the variable in the caller is unchanged unless overwritten.* 
+When there exists at least one call to another function within it that is the caller.
+
 ```c
+// passed by value
+int main(void) // caller
 int a = 10;
-a = set_int(a);  // overwrites a to the new variable
-set_int(a); // does not overwrite
-void set_int(int x)
+set_int(a); // does not overwrite in the caller a = 10;
+a = set_int(a);  // overwrites a to the new variable in the caller a = 22;
+void set_int(int x) // callee
 {
   x = 22;
 }
 ```
+
 Things can get insidious if the same variable name appears in multiple functions which is okay if the variable exist in different scopes
 
 ## Arrays
@@ -302,6 +377,17 @@ We cannot treat entire arrays themselves as variables
 Cannot assign one array to another using the assingment operator we must instead loop to copy over the elements one at a time
 Arrays *are passed by reference* The callee receives the actual array not a local copy of it if it were (passed by value) 
 
+```c
+// passed by reference
+int main(void) // caller
+int a[0] = 10;
+set_int(a); // overwrites in the caller a = 22;
+a = set_int(a);  // overwrites a to the new variable in the caller a = 22;
+void set_int(int x) // callee
+{
+  x = 22;
+}
+```
 
 ## Command Line Arguments
 To collect command-line argumentsfrom the user, declare main as:
