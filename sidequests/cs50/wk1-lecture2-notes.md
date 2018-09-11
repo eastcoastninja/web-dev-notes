@@ -240,6 +240,20 @@ One way to encrypt, or scramble data, so that it can be decrypted, or unscramble
 Encrypted data, or ciphertext, is the scrambled version of plaintext, or the original, easily-readable data. To get from plaintext to ciphertext, and vice versa, we need to know the key, or some piece of information, like a number that indicates how many letters we need to shift each letter in our plaintext by.
 
 ## Debugging
+Programs built into cs50.ide to help with debugging ```help50```,```eprintf```, and ```debug50```
+```help50``` gives you clues and hints without giving you the answer (best for logical bugs keeping your program from compiling)
+Usually when you get an error check the first error since it may be causing a cascading effect ccreating the other errors.
+```eprintf``` tells you what file and line it originated from good to put near the beginning and end of a program to make sure all the lines of code run (compile time errors)
+```debug50``` is a gui wrapper tool known as a gdb very richly developed debugging platform (best for runtime errors)
+Breakpoint code will execute until it hits that line of code then it will stop or break and wait for something to happen
+call stacks if multiple functions were being called it would tell you which function you are in at the time and which functions are waiting for stuff to happen
+Slows the computer down enough to see the steps that it is doing amd see if it deviates from what it is expected to be doing
+(Seeing the current values is useful and you can change the values of any variable while still in the debugging mode) this can help with continuing the debugger to help see the bug if not found right away
+### Buttons for debugger
+Resume continue through program as normal
+Step Over move one line ahead (generally want to step over any functions not written by you since stepping into them will go inside of that function)
+Step into goes inside and looks at the code (best to use for blocks of code)
+Step out is useful for getting out of functions will proceed through the rest of the function and begin at the next logical spot
 
 ## Functions
 If we aren't implementing the functions ourselves we don't need to know the underlying implementation. 
@@ -315,8 +329,8 @@ int main(void)
 ```
 ## Variable Scope
 Scope is a characteristic of a variable that defines from which that variable may be accessed
-	```Local``` accessible within the functions or blocks in which they were created
-	```global``` accessible by any function in the program must be defined outside of all functions and any function may refer to it.
+  ```Local``` accessible within the functions or blocks in which they were created
+  ```global``` accessible by any function in the program must be defined outside of all functions and any function may refer to it.
 
 Be careful with global variables a value can be changed before you expect it to be changed.
 *Local variables in C are passed by value in function calls. 
