@@ -239,6 +239,10 @@ One way to encrypt, or scramble data, so that it can be decrypted, or unscramble
 
 Encrypted data, or ciphertext, is the scrambled version of plaintext, or the original, easily-readable data. To get from plaintext to ciphertext, and vice versa, we need to know the key, or some piece of information, like a number that indicates how many letters we need to shift each letter in our plaintext by.
 
+Unencrypted text is generally called plaintext. Encrypted text is generally called ciphertext. And the secret used is called a key.
+
+
+
 ## Debugging
 Programs built into cs50.ide to help with debugging ```help50```,```eprintf```, and ```debug50```
 ```help50``` gives you clues and hints without giving you the answer (best for logical bugs keeping your program from compiling)
