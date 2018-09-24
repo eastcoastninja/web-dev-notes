@@ -1,6 +1,6 @@
-#FreeCodeCamp
+# FreeCodeCamp
 
-#Applied Accessibility
+## Applied Accessibility
 Depending on browser support, a date picker shows up in the input field when it's in focus, which makes filling in a form easier for all users.
 
 For older browsers, the type will default to text, so it helps to show users the expected date format in the label or as placeholder text just in case.
@@ -37,7 +37,7 @@ This same functionality can be given to other elements, such as ```div```, ```sp
 A negative tabindex value (typically -1) indicates that an element is focusable, but is not reachable by the keyboard. 
 Bonus - using tabindex also enables the CSS pseudo-class :focus to work on the p tag.
 
-##Introduction to the Responsive Web Design
+## Introduction to the Responsive Web Design
 Responsive Web Design is an approach to designing web content that responds to the constraints of different devices. The page structure and CSS rules should be flexible to accommodate these differences. In general, design the page's CSS to your target audience. If you expect most of your traffic to be from mobile users, take a 'mobile-first' approach. Then add conditional rules for larger screen sizes. If your visitors are desktop users, then design for larger screens with conditional rules for smaller sizes. CSS gives you the tools to write different style rules, then apply them depending on the device displaying the page.
 
 Media Queries are a new technique introduced in CSS3 that change the presentation of content based on different viewport sizes. The viewport is a user's visible area of a web page, and is different depending on the device used to access the site.
@@ -91,7 +91,7 @@ vmax: 100vmax would be 100% of the viewport's bigger dimension (height vs. width
   }
 </style>
 ```
-##Introduction to the CSS Flexbox
+## Introduction to the CSS Flexbox
 A website's User Interface ("UI") has two components. First, there are the visual elements, such as colors, fonts, and images. Second, there is the placement or positioning of those elements. In Responsive Web Design, a UI layout must accommodate many different browsers and devices accessing the content.
 
 CSS3 introduced Flexible Boxes, or flexbox, to create page layouts for a dynamic UI. It is a layout mode that arranges elements in a predictable way for different screen sizes and browsers. While somewhat new, all popular modern browsers support flexbox. 
@@ -199,7 +199,7 @@ The final property for flex items is align-self. This property allows you to adj
 align-self accepts the same values as align-items and will override any value set by the align-items property.
 
 
-##Introduction to the CSS Grid
+## Introduction to the CSS Grid
 CSS Grid helps you easily build complex web designs. It works by turning an HTML element into a grid container with rows and columns for you to place children elements where you want within the grid.
 
 Turn any HTML element into a grid container by setting its display property to grid. This gives you the ability to use all the other properties associated with CSS Grid.
